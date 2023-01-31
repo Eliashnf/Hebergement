@@ -1,0 +1,196 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
+
+body {
+    font-family: 'Montserrat', sans-serif; /* font family similar to Bootstrap */
+    position: relative;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #00008B; /* dark blue */
+    color: #fff; /* white */
+    height: 80px;
+    padding: 0 20px;
+    z-index: 9; /* or any number higher than the z-index of the grid-items */
+    position: relative; /* or fixed if you want the navbar to stay in place while scrolling */
+  }
+  
+  .navbar-brand {
+    flex: 1;
+  }
+  
+
+  .navbar-brand a {
+    color: #fff; /* white */
+  }
+
+  
+  .navbar-menu {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .navbar-menu ul {
+    display: flex;
+  }
+  
+  .navbar-menu ul li {
+    list-style: none;
+    margin-left: 20px;
+  }
+    
+  .navbar-menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+
+  .navbar-menu-link {
+    cursor: pointer;
+  }
+  
+  .navbar-toggler {
+    display: none; /* this will be used for responsive design */
+  }
+
+
+  /* ---------------------------------------------------CONTENT----------------------------------------------------------*/
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* divide into two equal columns */
+    grid-template-rows: 1fr;
+    height: 100vh;
+} 
+
+.grid-item {
+  top: 0;
+  left: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* or any number lower than the z-index of the navbar */
+}
+
+
+.grid-item.active {
+    display: block;
+}
+
+
+.parent-container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-container, .right-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-container {
+  grid-column: 1 / 2; /* occupy the first column */
+}
+
+.right-container {
+  grid-column: 2 / 3; /* occupy the second column */
+}
+
+h1 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+button {
+  margin: 0 10px;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ---------------------------------------------------FOOTER----------------------------------------------------------*/
+
+
+footer {
+  background-color: #003366; /* dark blue */
+  color: #fff; /* white text */
+  padding: 1em;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+}
+
+.social-link {
+  color: #fff; /* white text */
+  font-size: 1.5em; /* larger icons */
+  margin-right: 0.5em; /* space between icons */
+}
+
+.social-link:hover {
+  color: #006699; /* lighter blue on hover */
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 0.9em; /* smaller text */
+}
+
+
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .navbar-menu {
+      display: none;
+    }
+    .navbar-toggler {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 80px;
+      font-size: 2rem;
+      color: #000;
+      cursor: pointer;
+    }
+    .parent-container {
+      flex-wrap: wrap; /* Allows the items to wrap onto the next line */
+    }
+    .left-container, .right-container {
+      width: 100%; /* Takes up the full width of the container */
+    }
+    .right-container {
+      margin-top: 20px; /* Adds a margin to separate the image from the first part */
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .social-link {
+        font-size: 1em;
+    }
+
+    .footer-social-links, .footer-text {
+      display: block;
+  }
+}
